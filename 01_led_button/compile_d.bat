@@ -1,0 +1,1 @@
+mbed compile -c -v --profile .\debug_nano.json

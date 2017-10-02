@@ -1,1 +1,2 @@
-jlink-flash .\BUILD\NRF51_DONGLE\GCC_ARM\01_led_button.hex
+JLink.exe -device NRF51822_XXAA -If SWD -CommanderScript jlcmdfile.jlink
+

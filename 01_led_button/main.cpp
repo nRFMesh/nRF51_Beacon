@@ -13,15 +13,29 @@ void active_wait()
   }
 }
 
+DigitalOut  led(LED1);
+
+Ticker tick_call;
+
+void the_ticker()
+{
+    led = !led;
+    
+}
+
 int main() 
 {
-  DigitalOut  led(LED1);
+  volatile uint32_t check = 0;
+
+  tick_call.attach(&the_ticker,1);
   
   while(1) 
   {
-    led = 0;      
+    //led = 0;
+    check = us_ticker_read();
     active_wait();
-    led = 1;      
+    //led = 1;      
+    check = us_ticker_read();
     //TODO debug why this is not working     wait_ms(500);   
     active_wait();
   }

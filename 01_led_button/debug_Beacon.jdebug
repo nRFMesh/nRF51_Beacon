@@ -21,7 +21,7 @@ void OnProjectLoad (void) {
   //
   // User settings
   //
-  File.Open ("D:/Projects/NordicRF/nRF_Beacon_1/nRF51_Beacon_1/01_led_button/BUILD/NRF51_DONGLE/GCC_ARM/01_led_button.elf");
+  File.Open ("D:/Projects/NordicRF/nRF_Beacon_1/nRF51_Beacon_1/01_led_button/BUILD/NRF51_BEACON/GCC_ARM/01_led_button.elf");
 }
 
 /*********************************************************************

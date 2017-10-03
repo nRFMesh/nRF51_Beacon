@@ -1,9 +1,14 @@
 #include "mbed.h"
 
-DigitalOut  led(LED1);
+//if target Dongle used
+//DigitalOut  led(LED1);
+//for target Beacon
+DigitalOut led(p29);
 
 int main() 
 {
+
+  led = 1;      
 
   while(1) 
   {

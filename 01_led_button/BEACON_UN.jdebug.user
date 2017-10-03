@@ -1,0 +1,14 @@
+OpenWindow="Functions", DockArea=LEFT, x=0, y=1, w=1021, h=1064, FilterBarShown=1, 
+OpenWindow="Registers", DockArea=LEFT, x=0, y=1, w=1021, h=1064, FilterBarShown=0, 
+OpenWindow="Console", DockArea=RIGHT, x=0, y=1, w=1200, h=530, FilterBarShown=0, 
+OpenWindow="Watched Data", DockArea=RIGHT, x=0, y=0, w=1200, h=1338, FilterBarShown=0, 
+OpenWindow="Memory1", DockArea=RIGHT, x=0, y=1, w=1200, h=530, FilterBarShown=0, 
+OpenWindow="Call Stack", DockArea=LEFT, x=0, y=2, w=1021, h=337, FilterBarShown=0, 
+OpenWindow="Source Files", DockArea=LEFT, x=0, y=0, w=1021, h=493, FilterBarShown=1, 
+OpenWindow="Disassembly", DockArea=RIGHT, x=0, y=0, w=1200, h=1338, FilterBarShown=0, ExecCountersShown=0
+OpenToolbar="Debug", Floating=0, x=0, y=0
+TableHeader="Functions", SortCol="Address", SortOrder="ASCENDING", VisibleCols=["Name";"Address";"Size";"#Insts";"Class";"Source"], ColWidths=[275;122;74;96;223;304]
+TableHeader="Registers", SortCol="Name", SortOrder="ASCENDING", VisibleCols=["Name";"Value";"Description"], ColWidths=[135;132;754]
+TableHeader="Watched Data", SortCol="Expression", SortOrder="ASCENDING", VisibleCols=["Expression";"Value";"Location";"Size";"Refresh";"Type";"Access";"Namespace"], ColWidths=[240;134;134;74;105;80;97;577]
+TableHeader="Call Stack", SortCol="Function", SortOrder="ASCENDING", VisibleCols=["Function";"Stack Info";"Source"], ColWidths=[160;170;691]
+TableHeader="Source Files", SortCol="File", SortOrder="ASCENDING", VisibleCols=["File";"Status";"Address";"Size";"#Insts";"Path"], ColWidths=[240;102;122;74;96;2185]

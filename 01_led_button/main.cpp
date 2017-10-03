@@ -1,7 +1,7 @@
 #include "mbed.h"
 
 #ifdef SOFTDEVICE_PRESENT
-#error Sof devices still here
+#warning Sof devices still here
 #endif
 
 void active_wait()
@@ -17,26 +17,26 @@ DigitalOut  led(LED1);
 
 Ticker tick_call;
 
+volatile uint32_t check = 0;
+
 void the_ticker()
 {
-    led = !led;
-    
+  check = us_ticker_read();
 }
 
 int main() 
 {
-  volatile uint32_t check = 0;
 
-  tick_call.attach(&the_ticker,1);
+  //tick_call.attach(&the_ticker,1);
   
   while(1) 
   {
-    //led = 0;
-    check = us_ticker_read();
+    led = 0;
     active_wait();
-    //led = 1;      
-    check = us_ticker_read();
-    //TODO debug why this is not working     wait_ms(500);   
+    led = 1;      
+    //check = us_ticker_read();
+    //TODO debug why this is not working     
+    //wait_ms(500);
     active_wait();
   }
 }

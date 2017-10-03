@@ -1,12 +1,12 @@
-OpenWindow="Disassembly", DockArea=RIGHT, x=0, y=0, w=1441, h=1326, FilterBarShown=0, ExecCountersShown=0
-OpenWindow="Watched Data", DockArea=RIGHT, x=0, y=0, w=1441, h=1326, FilterBarShown=0, 
-OpenWindow="Functions", DockArea=LEFT, x=0, y=0, w=705, h=1469, FilterBarShown=1, 
-OpenWindow="Memory1", DockArea=LEFT, x=0, y=1, w=705, h=245, FilterBarShown=0, 
-OpenWindow="Registers", DockArea=LEFT, x=0, y=0, w=705, h=1469, FilterBarShown=0, 
-OpenWindow="Console", DockArea=RIGHT, x=0, y=1, w=1441, h=569, FilterBarShown=0, 
-OpenWindow="Call Stack", DockArea=LEFT, x=0, y=2, w=705, h=180, FilterBarShown=0, 
+OpenWindow="Watched Data", DockArea=RIGHT, x=0, y=0, w=1441, h=1315, FilterBarShown=0, 
+OpenWindow="Functions", DockArea=LEFT, x=0, y=0, w=705, h=1433, FilterBarShown=1, 
+OpenWindow="Memory1", DockArea=LEFT, x=0, y=1, w=705, h=262, FilterBarShown=0, 
+OpenWindow="Disassembly", DockArea=RIGHT, x=0, y=0, w=1441, h=1315, FilterBarShown=0, ExecCountersShown=0
+OpenWindow="Registers", DockArea=LEFT, x=0, y=0, w=705, h=1433, FilterBarShown=0, 
+OpenWindow="Console", DockArea=RIGHT, x=0, y=1, w=1441, h=580, FilterBarShown=0, 
+OpenWindow="Call Stack", DockArea=LEFT, x=0, y=2, w=705, h=199, FilterBarShown=0, 
 OpenToolbar="Debug", Floating=0, x=0, y=0
 TableHeader="Watched Data", SortCol="Expression", SortOrder="ASCENDING", VisibleCols=["Expression";"Value";"Location";"Size";"Refresh";"Type";"Access";"Namespace"], ColWidths=[227;146;158;74;105;340;97;294]
 TableHeader="Functions", SortCol="Address", SortOrder="ASCENDING", VisibleCols=["Name";"Address";"Size";"#Insts";"Class";"Source"], ColWidths=[275;122;74;96;223;304]
-TableHeader="Registers", SortCol="Name", SortOrder="ASCENDING", VisibleCols=["Name";"Value";"Description"], ColWidths=[220;132;1074]
+TableHeader="Registers", SortCol="Name", SortOrder="ASCENDING", VisibleCols=["Name";"Value";"Description"], ColWidths=[220;132;392]
 TableHeader="Call Stack", SortCol="Function", SortOrder="ASCENDING", VisibleCols=["Function";"Stack Info";"Source"], ColWidths=[182;170;353]

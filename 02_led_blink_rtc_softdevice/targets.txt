@@ -1,0 +1,43 @@
+
+TARGET_MCU_NRF51822
+    TARGET_MCU_NORDIC_32K
+    TARGET_MCU_NRF51_16K_S110
+TARGET_NRF5
+    TARGET_MCU_NRF51822_UNIFIED
+        TARGET_MCU_NORDIC_32K
+        TARGET_MCU_NRF51_16K_S110
+.
+
+
+NRF51_DONGLE 
+    <- MCU_NRF51_32K_UNIFIED 
+    <- MCU_NRF51_UNIFIED  
+        <- extralabels(MCU_NORDIC_32K, MCU_NRF51_32K)
+        <- macroadd(TARGET_MCU_NORDIC_32K, TARGET_MCU_NRF51_32K)
+    <- TARGET_MCU_NRF51822
+.
+NRF51_BEACON_UN
+    <- Target 
+        <- extralabels dir 
+            MCU_NORDIC_16K
+            MCU_NRF51_16K
+        <- macros 
+            TARGET_MCU_NORDIC_16K
+            TARGET_MCU_NRF51_16K
+    <- TARGET_MCU_NRF51822
+.
+NRF51_BEACON
+    <-MCU_NRF51_16K
+        <-MCU_NRF51_16K_BASE
+            <-MCU_NRF51
+    <-extralabels(MCU_NRF51_16K_S130)
+    <-macors(TARGET_MCU_NRF51_16K_S130)
+.
+includes dir 
+* NORDIC 
+    <- NRF5 
+        <- MCU_NRF51822_UNIFIED 
+            <- (GCC_ARM) 
+                <- MCU_NORDIC_16K
+    <- SDK11
+.

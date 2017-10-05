@@ -1,6 +1,6 @@
 .temp/
 BUILD/
 *.pyc
-mbed/
+mbed_c/
 .settings/
 .vscode/

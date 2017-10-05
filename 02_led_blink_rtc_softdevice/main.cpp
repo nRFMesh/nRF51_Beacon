@@ -3,7 +3,7 @@
 //if target Dongle used
 //DigitalOut  led(LED1);
 //for target Beacon
-DigitalOut led(p29);
+DigitalOut led(P0_29);
 
 int main() 
 {

@@ -1,0 +1,3 @@
+speed 4000
+loadfile .\BUILD\NRF51_MICROBIT\GCC_ARM\06_mbed2_esb_tx.hex
+exit

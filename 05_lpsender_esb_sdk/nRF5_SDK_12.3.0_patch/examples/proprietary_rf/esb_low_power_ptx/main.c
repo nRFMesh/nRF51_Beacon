@@ -58,8 +58,6 @@
 #define BTN_PRESSED     0                       /**< Value of a pressed button. */
 #define BTN_RELEASED    1                       /**< Value of a released button. */
 
-//#define NRF_ESB_LEGACY
-
 /*lint -save -esym(40, BUTTON_1) -esym(40, BUTTON_2) -esym(40, BUTTON_3) -esym(40, BUTTON_4) -esym(40, LED_1) -esym(40, LED_2) -esym(40, LED_3) -esym(40, LED_4) */
 
 static nrf_esb_payload_t tx_payload = NRF_ESB_CREATE_PAYLOAD(0, 0x01, 0x00);
@@ -135,17 +133,16 @@ uint32_t esb_init( void )
     uint8_t base_addr_1[4] = {0xC2, 0xC2, 0xC2, 0xC2};
     uint8_t addr_prefix[8] = {0xE7, 0xC2, 0xC3, 0xC4, 0xC5, 0xC6, 0xC7, 0xC8 };
 
-#ifndef NRF_ESB_LEGACY
     nrf_esb_config_t nrf_esb_config         = NRF_ESB_DEFAULT_CONFIG;
-#else // NRF_ESB_LEGACY
-    nrf_esb_config_t nrf_esb_config         = NRF_ESB_LEGACY_CONFIG;
-#endif // NRF_ESB_LEGACY
-    nrf_esb_config.retransmit_count         = 6;
-    nrf_esb_config.selective_auto_ack       = false;
+
+    nrf_esb_config.retransmit_count         = 0;
+    nrf_esb_config.selective_auto_ack       = true;//payload.noack  decides
     nrf_esb_config.protocol                 = NRF_ESB_PROTOCOL_ESB_DPL;
+    nrf_esb_config.payload_length           = 8;
     nrf_esb_config.bitrate                  = NRF_ESB_BITRATE_2MBPS;
     nrf_esb_config.event_handler            = nrf_esb_event_handler;
     nrf_esb_config.mode                     = NRF_ESB_MODE_PTX;
+    nrf_esb_config.crc                      = NRF_ESB_CRC_16BIT;
 
     err_code = nrf_esb_init(&nrf_esb_config);
     VERIFY_SUCCESS(err_code);
@@ -159,13 +156,29 @@ uint32_t esb_init( void )
     err_code = nrf_esb_set_prefixes(addr_prefix, 8);
     VERIFY_SUCCESS(err_code);
 
-    tx_payload.length  = 3;
+    tx_payload.length  = 8;
     tx_payload.pipe    = 0;
     tx_payload.data[0] = 0x00;
 
     return NRF_SUCCESS;
 }
 
+uint32_t esb_tx_alive()
+{
+    uint32_t err_code;
+    tx_payload.length   = 1;//payload + header (crc length not included)
+    tx_payload.user_pid = 0xF5;// broadcast | 0x75
+    tx_payload.noack    = true;//it is a broadcast
+    tx_payload.pipe     = 0;
+    
+    tx_payload.data[0] = 0x15;//source
+    
+    tx_payload.noack = true;
+    err_code = nrf_esb_write_payload(&tx_payload);
+    VERIFY_SUCCESS(err_code);
+
+    return NRF_SUCCESS;
+}
 
 uint32_t gpio_check_and_esb_tx()
 {
@@ -232,7 +245,8 @@ int main(void)
     recover_state();
 
     // Check state of all buttons and send an esb packet with the button press if there is exactly one.
-    err_code = gpio_check_and_esb_tx();
+    //err_code = gpio_check_and_esb_tx();
+    err_code = esb_tx_alive();
     APP_ERROR_CHECK(err_code);
 
     while (true)

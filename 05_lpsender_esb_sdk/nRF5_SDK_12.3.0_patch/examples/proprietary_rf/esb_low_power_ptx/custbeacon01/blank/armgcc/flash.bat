@@ -1,1 +1,1 @@
-JLink.exe -device NRF51822_XXAA -SelectEmuBySN %SEG_JLEDU% -If SWD -CommanderScript jlcmdfile.jlink
+JLink.exe -device NRF51822_XXAA -SelectEmuBySN %SEG_JLEDU% -If SWD -CommanderScript jlflash.jlink -Speed 4000
